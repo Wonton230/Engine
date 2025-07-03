@@ -39,8 +39,15 @@ A beginner work in progress game engine for learning game engine design and syst
   SomeDirectory/				
       YourProjectDirectory/
         YourProjectDirectory.sln
-        Content/
-        Run/ *Make sure this folder exists. This will be where build exe's get placed using the settings above
+        Code/
+          Game/
+            EngineBuildPreferences.hpp       *Must be added in this directory.
+        Run/                                 *Make sure this folder exists. This will be where build exe's get placed using the settings above.
+          Data/                              *This will be where content files like textures, shaders, fonts, audio files will be stored.
+            Shaders/
+            Fonts/
+            Images/
+            ...
         Temporary/
       Engine/
         Docs/
@@ -86,4 +93,22 @@ A beginner work in progress game engine for learning game engine design and syst
 
   ```ISO C++17 Standard (/std:c++17)```
   
-- Right click the References filter in your project and select "Add Reference". Check the box for "Engine".
+- Right click the References filter in your game and select "Add Reference". Check the box for "Engine".
+
+- Ensure that you have create a header file "EngineBuildPreferences.hpp" to your ```Code/Game``` directory and copy the following code into it. (See file structure above for location details)
+
+  ```
+  //-----------------------------------------------------------------------------------------------
+  // EngineBuildPreferences.hpp
+  //
+  // Defines build preferences that the Engine should use when building for this particular game.
+  //
+  //	*Each game can now direct the engine via #defines to build differently for that game.
+  //	*ALL games must now have this Code/Game/EngineBuildPreferences.hpp file.
+  //
+  
+  #define ENGINE_DISABLE_AUDIO  // (If uncommented) Disables AudioSystem code and fmod linkage.
+  #if defined(_DEBUG)
+  #define ENGINE_DEBUG_RENDER  // (If uncommented) Enables Debug Render Mode for DX11
+  #endif
+```
