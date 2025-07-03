@@ -1,4 +1,5 @@
 # Engine
+
 A beginner work in progress game engine for learning game engine design and systems.
 
 ## Setup
@@ -37,12 +38,12 @@ A beginner work in progress game engine for learning game engine design and syst
 - Place your solution's directory adjacent to the top level Engine directory. Please refer to the diagram below:
   ```
   SomeDirectory/				
-      YourProjectDirectory/
-        YourProjectDirectory.sln
+      YourProject/
+        YourProject.sln
         Code/
           Game/
             EngineBuildPreferences.hpp       *Must be added in this directory.
-        Run/                                 *Make sure this folder exists. This will be where build exe's get placed using the settings above.
+        Run/                                 *Make sure this folder exists. This will be where build exe's get placed and where potentially used .dll's reside.
           Data/                              *This will be where content files like textures, shaders, fonts, audio files will be stored.
             Shaders/
             Fonts/
@@ -111,4 +112,4 @@ A beginner work in progress game engine for learning game engine design and syst
   #if defined(_DEBUG)
   #define ENGINE_DEBUG_RENDER  // (If uncommented) Enables Debug Render Mode for DX11
   #endif
-```
+  ```
